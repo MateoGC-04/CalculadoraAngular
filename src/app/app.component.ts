@@ -8,6 +8,14 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'proyect';
 }
+import { create, all } from 'mathjs'
+
+const config = { }
+const math = create(all, config)
+
+const buttonCorI = document.getElementById('CorI');
+const buttonCorD = document.getElementById('CorD');
+const buttonDegre = document.getElementById('Grados');
 
 const button0 = document.getElementById('Zero');
 const button1 = document.getElementById('One');
@@ -27,7 +35,7 @@ const buttonDiv = document.getElementById('Div');
 
 const buttonDEL = document.getElementById('DEL');
 const buttonAC = document.getElementById('AC');
-const buttonAns = document.getElementById('Ans');
+const buttonComa = document.getElementById('Coma');
 
 const buttonSin = document.getElementById('Sin');
 const buttonCos = document.getElementById('Cos');
@@ -38,7 +46,57 @@ const buttonPotencia = document.getElementById('Potencia');
 const buttonRaiz = document.getElementById('Raiz');
 const buttonPi = document.getElementById('Pi');
 const buttonP = document.getElementById('Point');
-let contenedor
+let contenedor;
+
+buttonDEL?.addEventListener('click', function handleClick(event) {
+  let str;
+  let myContainer = <HTMLElement>document.getElementById('tabla');
+  str = (<HTMLElement><unknown>document.getElementById('tabla')?.innerHTML);
+  contenedor = str.toString();
+  contenedor = contenedor.slice(0, -1);
+  myContainer.innerHTML = contenedor;
+
+});
+
+buttonAC?.addEventListener('click', function handleClick(event) {
+
+  let myContainer = <HTMLElement>document.getElementById('tabla');
+  contenedor = ""
+  myContainer.innerHTML = contenedor;
+
+});
+
+buttonDegre?.addEventListener('click', function handleClick(event) {
+
+  let myContainer = <HTMLElement>document.getElementById('tabla');
+  contenedor = myContainer.innerHTML + "deg"
+  myContainer.innerHTML = contenedor;
+
+});
+
+buttonCorI?.addEventListener('click', function handleClick(event) {
+
+  let myContainer = <HTMLElement>document.getElementById('tabla');
+  contenedor = myContainer.innerHTML + "("
+  myContainer.innerHTML = contenedor;
+
+});
+
+buttonCorD?.addEventListener('click', function handleClick(event) {
+
+  let myContainer = <HTMLElement>document.getElementById('tabla');
+  contenedor = myContainer.innerHTML + ")"
+  myContainer.innerHTML = contenedor;
+
+});
+
+buttonComa?.addEventListener('click', function handleClick(event) {
+
+  let myContainer = <HTMLElement>document.getElementById('tabla');
+  contenedor = myContainer.innerHTML + ","
+  myContainer.innerHTML = contenedor;
+
+});
 
 button1?.addEventListener('click', function handleClick(event) {
 
@@ -148,16 +206,65 @@ buttonDiv?.addEventListener('click', function handleClick(event) {
 
 });
 
+buttonCos?.addEventListener('click', function handleClick(event) {
+
+  let myContainer = <HTMLElement>document.getElementById('tabla');
+  contenedor = myContainer.innerHTML + " cos("
+  myContainer.innerHTML = contenedor;
+
+});
+
+buttonSin?.addEventListener('click', function handleClick(event) {
+
+  let myContainer = <HTMLElement>document.getElementById('tabla');
+  contenedor = myContainer.innerHTML + " sin("
+  myContainer.innerHTML = contenedor;
+
+});
+
+buttonTan?.addEventListener('click', function handleClick(event) {
+
+  let myContainer = <HTMLElement>document.getElementById('tabla');
+  contenedor = myContainer.innerHTML + " tan("
+  myContainer.innerHTML = contenedor;
+
+});
+
+buttonRaiz?.addEventListener('click', function handleClick(event) {
+
+  let myContainer = <HTMLElement>document.getElementById('tabla');
+  contenedor = myContainer.innerHTML + " sqrt("
+  myContainer.innerHTML = contenedor;
+
+});
+
+buttonPotencia?.addEventListener('click', function handleClick(event) {
+
+  let myContainer = <HTMLElement>document.getElementById('tabla');
+  contenedor = myContainer.innerHTML + " pow("
+  myContainer.innerHTML = contenedor;
+
+});
+
+buttonPi?.addEventListener('click', function handleClick(event) {
+
+  let myContainer = <HTMLElement>document.getElementById('tabla');
+  contenedor = myContainer.innerHTML + "pi"
+  myContainer.innerHTML = contenedor;
+
+});
+
 buttonIgual?.addEventListener('click', function handleClick(event) {
   let operacion
   let operacion2
   
   operacion = (<HTMLElement><unknown>document.getElementById('tabla')?.innerHTML)
   operacion2 = operacion.toString()
-  operacion = eval(operacion2)
-  operacion2 = operacion.toString()
+  operacion = math.parse(operacion2)
+  operacion2 = operacion.evaluate()
+  operacion = operacion2.toString()
   
   let myContainer = <HTMLElement>document.getElementById('tabla');
-  myContainer.innerHTML = operacion2;
+  myContainer.innerHTML = operacion;
 
 });

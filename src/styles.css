@@ -25,7 +25,7 @@
     background-color: #f5570d;
     opacity: 1;
 }
-num:active {
+.num:active {
     background-color: #f5570d;
     box-shadow: 0 5px #666;
   }
