@@ -13,9 +13,14 @@ import { create, all } from 'mathjs'
 const config = { }
 const math = create(all, config)
 
+let Historial: string[] = []
+let Pos = Historial.length;
+
 const buttonCorI = document.getElementById('CorI');
 const buttonCorD = document.getElementById('CorD');
 const buttonDegre = document.getElementById('Grados');
+const buttonAnterior = document.getElementById('Anterior');
+const buttonSiguiente = document.getElementById('Siguiente');
 
 const button0 = document.getElementById('Zero');
 const button1 = document.getElementById('One');
@@ -260,11 +265,37 @@ buttonIgual?.addEventListener('click', function handleClick(event) {
   
   operacion = (<HTMLElement><unknown>document.getElementById('tabla')?.innerHTML)
   operacion2 = operacion.toString()
+  Historial.push(operacion2)
+  Pos = Pos + 1;
   operacion = math.parse(operacion2)
   operacion2 = operacion.evaluate()
   operacion = operacion2.toString()
-  
   let myContainer = <HTMLElement>document.getElementById('tabla');
   myContainer.innerHTML = operacion;
 
+});
+
+buttonAnterior?.addEventListener('click', function handleClick(event) {
+  let Anterior
+  if (Pos == 0) {
+    Pos = 0;
+  } else {
+    Pos = Pos-1;
+    Anterior = Historial[Pos]
+    let myContainer = <HTMLElement>document.getElementById('tabla');
+    contenedor = Anterior;
+    myContainer.innerHTML = contenedor;
+  }
+});
+
+buttonSiguiente?.addEventListener('click', function handleClick(event) {
+  let Siguiente
+  if (Pos == Historial.length- 1) {
+  } else {
+    Pos = Pos+1;
+    Siguiente = Historial[Pos]
+    let myContainer = <HTMLElement>document.getElementById('tabla');
+    contenedor = Siguiente;
+    myContainer.innerHTML = contenedor;
+  }
 });
