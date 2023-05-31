@@ -19,7 +19,7 @@
     border: none;
     border-radius: 15px;
     box-shadow: 0 9px #999;
-    width: 90px;
+    width: 150px;
 }
 .num:hover{
     background-color: #f5570d;
@@ -42,7 +42,7 @@
     border: none;
     border-radius: 15px;
     box-shadow: 0 9px #999;
-    width: 90px;
+    width: 150px;
     
   }
   .button:hover {
