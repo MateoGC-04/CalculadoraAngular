@@ -1,6 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
-.button {
-    display: inline-block;
+#Igual{
+    background-color: #0c8807;
+}
+#Igual:hover{
+    opacity: 1;
+    background-color: #0fa80a;
+}
+
+.num{
+    background-color: #e6500b;
     padding: 15px 25px;
     font-size: 24px;
     cursor: pointer;
@@ -8,16 +16,44 @@
     text-decoration: none;
     outline: none;
     color: #fff;
-    background-color: #f15309;
     border: none;
     border-radius: 15px;
     box-shadow: 0 9px #999;
-  }
-  
-  .button:hover {background-color: #f15309}
-  
-  .button:active {
-    background-color: #f15309;
+    width: 90px;
+}
+.num:hover{
+    background-color: #f5570d;
+    opacity: 1;
+}
+num:active {
+    background-color: #f5570d;
     box-shadow: 0 5px #666;
-    transform: translateY(4px);
+  }
+
+.button{
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #130777;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    width: 90px;
+    
+  }
+  .button:hover {
+    opacity: 1;
+    background-color: #1a0ba3;
+  }
+  .button:active {
+    background-color: #1a0ba3;
+    box-shadow: 0 5px #666;
+  }
+
+  .col-sm{
+    text-align: center;
   }
